@@ -1,13 +1,12 @@
 //criar variáveis
 
 var tPato;
-var tPatoImg;
 
 //função que carrega imagens
 function preload()
 {
     //carregar imagens
-    tPatoImg = addImage("img/pato.png");
+    tPatoImg = loadImage("img/pato.png");
 }
 
 
@@ -15,14 +14,13 @@ function preload()
 function setup()
 {
     //cria tamanho do fundo da tela
+    createCanvas(500,500);
     //criar sprites
+    tPato = createSprite(200,200,10,10);
     //carregar imagem
-    //colocar tamanho
-    createCanvas(600,200);
-
-    tPato = createSprite(100,100,20,20);
     tPato.addImage("tPato",tPatoImg);
-    tPato.scale = 0.5;
+    //colocar tamanho
+    tPato.scale = 0.3;
 
 }
 
@@ -34,16 +32,12 @@ function draw()
     background("#BFBFBF");
 
   
-    if(keyDown("space")){
-
-        tRex.velocityY = -10;
+    if(keyDown("space"))
+    {
+        tPato.velocityY = -10;
     }
     
     tPato.velocityY = tPato.velocityY + 0.8;
-
     drawSprites();
 
 }
-    //cria os elementos na tela (sprites)
-
- 
